@@ -1,0 +1,21 @@
+<div data-dojo-type = "dijit.Dialog" id = "add-new-dialog" title = "Загрузка иконок" style = 'width: 360px; height: 230px;'>
+	<div data-dojo-type="dijit.layout.ContentPane" id="style-upload" style="padding: 0px 0px 0px 0px; height: 100%;">
+
+		<form id="add-form" enctype="multipart/form-data" action="" method="post"  align='center' style="display: none; width: 100%;">
+			{% csrf_token %}
+				<table>
+					<tr><th><label for="id_last_name">Фамилия:</label></th><td><input id="id_last_name" style="width: 200px;" maxlength="200" name="last_name" type="text" /></td></tr>
+					<tr><th><label for="id_first_name">Имя:</label></th><td><input id="id_first_name" style="width: 200px;" maxlength="200" name="first_name" type="text" /></td></tr>
+					<tr><th><label for="id_date_of_birth">Дата рождения:</label></th><td><input id="id_date_of_birth" name="date_of_birth" type="text" value="2001-01-01" onchange="setAge(this.value);"   data-dojo-type="dijit.form.DateTextBox"  style="width: 200px;"   required="true"  /></td></tr>
+					<tr><th><label for="id_photo">Путь к фото:</label></th><td><input type="file" id="id_photo" name="file" style="width: 100%; display: block;" accept="image/*" /></td></tr>
+					<tr><th><label for="id_votes">Возраст:</label></th><td><input id="id_age" name="age" type="number" value="0" style="width: 200px;"/></td></tr>
+					<tr><th><label for="id_votes">Рейтинг:</label></th><td><input id="id_votes" name="votes" type="number" max="10" style="width: 200px;" value="0" /></td></tr>
+				</table>
+				<hr>
+		        <button data-dojo-type="dijit.form.Button" type="submit">Сохранить</button>
+
+		</form>
+	    
+	</div>
+</div>
+

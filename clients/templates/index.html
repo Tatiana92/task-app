@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<script type="text/javascript" src="{{STATIC_URL}}Dojo/dojo-1.9.2/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
+		<link rel="stylesheet" href="{{STATIC_URL}}Dojo/dojo-1.9.2/dijit/themes/tundra/tundra.css" />
+
+		<link rel="stylesheet" href="{{STATIC_URL}}Dojo/dojo-1.9.2/dojox/grid/enhanced/resources/claro/EnhancedGrid.css"/>
+		<link rel="stylesheet" href="{{STATIC_URL}}Dojo/dojo-1.9.2/dojox/grid/enhanced/resources/EnhancedGrid_rtl.css"/>
+	</head>
+
+	<body class="claro" align='center'>
+		{% load staticfiles %}
+
+		<script>
+			MYMEDIA = '{{ MEDIA_URL }}';
+		</script>	
+		 {% csrf_token %}
+		<script src="{% static 'js/clients.js' %}"></script>
+		<link rel="stylesheet" href="{% static 'css/clients.css' %}">
+
+		<div id="gridDiv" style= 'overflow: auto' align='center'></div>
+		<hr>
+		<button id="addButtonNode" type = "button" onclick="onAddNew();">Добавить клиента</button>
+		<button id="deleteButtonNode" type = "button" onclick="deleteSelected();">Удалить выделенное</button>
+		<button id="deleteButtonNode" type = "button" 
+		onclick="if (confirm('Хотите скачать?'))
+					window.open(window.location.href + 'export');">Выгрузка в XLSX</button>
+		<button id="votingButton" type = "button" onclick="window.open(window.location.href + 'vote');">Голосовать</button>
+
+		        {% include "additem.html" %}
+
+	</body>
+</html>
